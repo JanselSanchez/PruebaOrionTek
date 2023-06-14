@@ -1,0 +1,63 @@
+public class Cliente {
+    private String nombre;
+    private List<Direccion> direcciones;
+
+    public Cliente(String nombre) {
+        this.nombre = nombre;
+        this.direcciones = new ArrayList<>();
+    }
+
+    // Getters y setters para nombre y direcciones
+
+    public void agregarDireccion(Direccion direccion) {
+        direcciones.add(direccion);
+    }
+
+    public void eliminarDireccion(Direccion direccion) {
+        direcciones.remove(direccion);
+    }
+}
+
+public class Direccion {
+    private String calle;
+    private String ciudad;
+    private String estado;
+    // Otros campos relevantes
+
+    public Direccion(String calle, String ciudad, String estado) {
+        this.calle = calle;
+        this.ciudad = ciudad;
+        this.estado = estado;
+    }
+
+    // Getters y setters para los campos de dirección
+}
+public class Main {
+    public static void main(String[] args) {
+        // Crear clientes y direcciones
+        Cliente cliente1 = new Cliente("Cliente 1");
+        Cliente cliente2 = new Cliente("Cliente 2");
+
+        Direccion direccion1 = new Direccion("Calle 1", "Ciudad 1", "Estado 1");
+        Direccion direccion2 = new Direccion("Calle 2", "Ciudad 2", "Estado 2");
+        Direccion direccion3 = new Direccion("Calle 3", "Ciudad 3", "Estado 3");
+
+        // Asignar direcciones a los clientes
+        cliente1.agregarDireccion(direccion1);
+        cliente1.agregarDireccion(direccion2);
+        cliente2.agregarDireccion(direccion3);
+
+        // Imprimir información de los clientes y sus direcciones
+        System.out.println("Cliente 1: " + cliente1.getNombre());
+        System.out.println("Direcciones:");
+        for (Direccion direccion : cliente1.getDirecciones()) {
+            System.out.println("- " + direccion.getCalle() + ", " + direccion.getCiudad() + ", " + direccion.getEstado());
+        }
+
+        System.out.println("\nCliente 2: " + cliente2.getNombre());
+        System.out.println("Direcciones:");
+        for (Direccion direccion : cliente2.getDirecciones()) {
+            System.out.println("- " + direccion.getCalle() + ", " + direccion.getCiudad() + ", " + direccion.getEstado());
+        }
+    }
+}
